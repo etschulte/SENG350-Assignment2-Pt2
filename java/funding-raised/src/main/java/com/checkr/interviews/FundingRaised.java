@@ -35,9 +35,9 @@ public class FundingRaised {
         if(isCompanyName(options)) {
             List<String[]> results = new ArrayList<String[]> ();
 
-            for(int i = 0; i < csvData.size(); i++) {
-                if(csvData.get(i)[1].equals(options.get("company_name"))) {
-                    results.add(csvData.get(i));
+            for (String[] csvDatum : csvData) {
+                if (csvDatum[1].equals(options.get("company_name"))) {
+                    results.add(csvDatum);
                 }
             }
             csvData = results;
@@ -46,9 +46,9 @@ public class FundingRaised {
         if(isCompanyName(options)) {
             List<String[]> results = new ArrayList<String[]> ();
 
-            for(int i = 0; i < csvData.size(); i++) {
-                if(csvData.get(i)[4].equals(options.get("city"))) {
-                    results.add(csvData.get(i));
+            for (String[] csvDatum : csvData) {
+                if (csvDatum[4].equals(options.get("city"))) {
+                    results.add(csvDatum);
                 }
             }
             csvData = results;
@@ -57,9 +57,9 @@ public class FundingRaised {
         if(isCompanyName(options)) {
             List<String[]> results = new ArrayList<String[]> ();
 
-            for(int i = 0; i < csvData.size(); i++) {
-                if(csvData.get(i)[5].equals(options.get("state"))) {
-                    results.add(csvData.get(i));
+            for (String[] csvDatum : csvData) {
+                if (csvDatum[5].equals(options.get("state"))) {
+                    results.add(csvDatum);
                 }
             }
             csvData = results;
@@ -68,9 +68,9 @@ public class FundingRaised {
         if(isCompanyName(options)) {
             List<String[]> results = new ArrayList<String[]> ();
 
-            for(int i = 0; i < csvData.size(); i++) {
-                if(csvData.get(i)[9].equals(options.get("round"))) {
-                    results.add(csvData.get(i));
+            for (String[] csvDatum : csvData) {
+                if (csvDatum[9].equals(options.get("round"))) {
+                    results.add(csvDatum);
                 }
             }
             csvData = results;

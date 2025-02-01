@@ -78,7 +78,7 @@ public class FundingRaised {
         return csvData;
     }
 
-    public static Map<String, String> findBy(Map<String, String> options) throws IOException, NoSuchEntryException {
+    public static Map<String, String> findByMapAndString(Map<String, String> options) throws IOException, NoSuchEntryException {
         List<String[]> csvData = new ArrayList<String[]>();
         CSVReader reader = new CSVReader(new FileReader("startup_funding.csv"));
         String[] row = null;

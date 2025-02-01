@@ -43,7 +43,7 @@ public class FundingRaised {
             csvData = results;
         }
 
-        if(options.containsKey("city")) {
+        if(isCompanyName(options)) {
             List<String[]> results = new ArrayList<String[]> ();
 
             for(int i = 0; i < csvData.size(); i++) {
@@ -54,7 +54,7 @@ public class FundingRaised {
             csvData = results;
         }
 
-        if(options.containsKey("state")) {
+        if(isCompanyName(options)) {
             List<String[]> results = new ArrayList<String[]> ();
 
             for(int i = 0; i < csvData.size(); i++) {
@@ -65,7 +65,7 @@ public class FundingRaised {
             csvData = results;
         }
 
-        if(options.containsKey("round")) {
+        if(isCompanyName(options)) {
             List<String[]> results = new ArrayList<String[]> ();
 
             for(int i = 0; i < csvData.size(); i++) {
@@ -100,7 +100,7 @@ public class FundingRaised {
                 }
             }
 
-            if(options.containsKey("city")) {
+            if(isCompanyName(options)) {
                 if(csvData.get(i)[4].equals(options.get("city"))) {
                     addToMap(mapped, csvData, i);
                 } else {
@@ -108,7 +108,7 @@ public class FundingRaised {
                 }
             }
 
-            if(options.containsKey("state")) {
+            if(isCompanyName(options)) {
                 if(csvData.get(i)[5].equals(options.get("state"))) {
                     addToMap(mapped, csvData, i);
                 } else {
@@ -116,7 +116,7 @@ public class FundingRaised {
                 }
             }
 
-            if(options.containsKey("round")) {
+            if(isCompanyName(options)) {
                 if(csvData.get(i)[9].equals(options.get("round"))) {
                     addToMap(mapped, csvData, i);
                 } else {

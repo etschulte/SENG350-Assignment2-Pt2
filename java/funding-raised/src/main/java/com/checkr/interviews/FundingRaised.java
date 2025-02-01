@@ -32,8 +32,11 @@ public class FundingRaised {
     }
 
     private static List<String[]> getOption(Map<String, String> options, List<String[]> csvData) {
+
+        List<String[]> results = new ArrayList<String[]> ();
+
         if(isCompanyName(options)) {
-            List<String[]> results = new ArrayList<String[]> ();
+
 
             for (String[] csvDatum : csvData) {
                 if (csvDatum[1].equals(options.get("company_name"))) {
@@ -44,7 +47,6 @@ public class FundingRaised {
         }
 
         if(isCompanyName(options)) {
-            List<String[]> results = new ArrayList<String[]> ();
 
             for (String[] csvDatum : csvData) {
                 if (csvDatum[4].equals(options.get("city"))) {
@@ -55,7 +57,6 @@ public class FundingRaised {
         }
 
         if(isCompanyName(options)) {
-            List<String[]> results = new ArrayList<String[]> ();
 
             for (String[] csvDatum : csvData) {
                 if (csvDatum[5].equals(options.get("state"))) {
@@ -66,7 +67,6 @@ public class FundingRaised {
         }
 
         if(isCompanyName(options)) {
-            List<String[]> results = new ArrayList<String[]> ();
 
             for (String[] csvDatum : csvData) {
                 if (csvDatum[9].equals(options.get("round"))) {

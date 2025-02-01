@@ -32,7 +32,7 @@ public class FundingRaised {
     }
 
     private static List<String[]> getOption(Map<String, String> options, List<String[]> csvData) {
-        if(options.containsKey("company_name")) {
+        if(isCompanyName(options)) {
             List<String[]> results = new ArrayList<String[]> ();
 
             for(int i = 0; i < csvData.size(); i++) {
@@ -92,7 +92,7 @@ public class FundingRaised {
         Map<String, String> mapped = new HashMap<String, String> ();
 
         for(int i = 0; i < csvData.size(); i++) {
-            if(options.containsKey("company_name")) {
+            if(isCompanyName(options)) {
                 if(csvData.get(i)[1].equals(options.get("company_name"))) {
                     addToMap(mapped, csvData, i);
                 } else {
@@ -128,6 +128,10 @@ public class FundingRaised {
         }
 
         throw new NoSuchEntryException();
+    }
+
+    private static boolean isCompanyName(Map<String, String> options) {
+        return options.containsKey("company_name");
     }
 
     private static void addToMap(Map<String, String> mapped, List<String[]> csvData, int i) {

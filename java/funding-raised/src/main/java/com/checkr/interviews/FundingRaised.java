@@ -12,7 +12,7 @@ public class FundingRaised {
         String[] row = null;
 
         while((row = reader.readNext()) != null) {
-            csvData.add(row);
+            addToResults(row, csvData);
         }
 
         reader.close();
@@ -37,7 +37,7 @@ public class FundingRaised {
 
             for (String[] csvDatum : csvData) {
                 if (csvDatum[1].equals(options.get("company_name"))) {
-                    results.add(csvDatum);
+                    addToResults(csvDatum, results);
                 }
             }
             csvData = results;
@@ -48,7 +48,7 @@ public class FundingRaised {
 
             for (String[] csvDatum : csvData) {
                 if (csvDatum[4].equals(options.get("city"))) {
-                    results.add(csvDatum);
+                    addToResults(csvDatum, results);
                 }
             }
             csvData = results;
@@ -59,7 +59,7 @@ public class FundingRaised {
 
             for (String[] csvDatum : csvData) {
                 if (csvDatum[5].equals(options.get("state"))) {
-                    results.add(csvDatum);
+                    addToResults(csvDatum, results);
                 }
             }
             csvData = results;
@@ -70,12 +70,16 @@ public class FundingRaised {
 
             for (String[] csvDatum : csvData) {
                 if (csvDatum[9].equals(options.get("round"))) {
-                    results.add(csvDatum);
+                    addToResults(csvDatum, results);
                 }
             }
             csvData = results;
         }
         return csvData;
+    }
+
+    private static boolean addToResults(String[] csvDatum, List<String[]> results) {
+        return results.add(csvDatum);
     }
 
     public static Map<String, String> findByMapAndString(Map<String, String> options) throws IOException, NoSuchEntryException {
@@ -84,7 +88,7 @@ public class FundingRaised {
         String[] row = null;
 
         while((row = reader.readNext()) != null) {
-            csvData.add(row);
+            addToResults(row, csvData);
         }
 
         reader.close();

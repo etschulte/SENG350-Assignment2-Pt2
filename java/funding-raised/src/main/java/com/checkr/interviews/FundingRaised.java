@@ -18,6 +18,29 @@ public class FundingRaised {
         reader.close();
         csvData.remove(0);
 
+        csvData = getOption(options, csvData);
+
+        List<Map<String, String>> output = new ArrayList<Map<String, String>>();
+
+        for(int i = 0; i < csvData.size(); i++) {
+            Map<String, String> mapped = new HashMap<String, String> ();
+            mapped.put("permalink", csvData.get(i)[0]);
+            mapped.put("company_name", csvData.get(i)[1]);
+            mapped.put("number_employees", csvData.get(i)[2]);
+            mapped.put("category", csvData.get(i)[3]);
+            mapped.put("city", csvData.get(i)[4]);
+            mapped.put("state", csvData.get(i)[5]);
+            mapped.put("funded_date", csvData.get(i)[6]);
+            mapped.put("raised_amount", csvData.get(i)[7]);
+            mapped.put("raised_currency", csvData.get(i)[8]);
+            mapped.put("round", csvData.get(i)[9]);
+            output.add(mapped);
+        }
+
+        return output;
+    }
+
+    private static List<String[]> getOption(Map<String, String> options, List<String[]> csvData) {
         if(options.containsKey("company_name")) {
             List<String[]> results = new ArrayList<String[]> ();
 
@@ -61,25 +84,7 @@ public class FundingRaised {
             }
             csvData = results;
         }
-
-        List<Map<String, String>> output = new ArrayList<Map<String, String>>();
-
-        for(int i = 0; i < csvData.size(); i++) {
-            Map<String, String> mapped = new HashMap<String, String> ();
-            mapped.put("permalink", csvData.get(i)[0]);
-            mapped.put("company_name", csvData.get(i)[1]);
-            mapped.put("number_employees", csvData.get(i)[2]);
-            mapped.put("category", csvData.get(i)[3]);
-            mapped.put("city", csvData.get(i)[4]);
-            mapped.put("state", csvData.get(i)[5]);
-            mapped.put("funded_date", csvData.get(i)[6]);
-            mapped.put("raised_amount", csvData.get(i)[7]);
-            mapped.put("raised_currency", csvData.get(i)[8]);
-            mapped.put("round", csvData.get(i)[9]);
-            output.add(mapped);
-        }
-
-        return output;
+        return csvData;
     }
 
     public static Map<String, String> findBy(Map<String, String> options) throws IOException, NoSuchEntryException {
